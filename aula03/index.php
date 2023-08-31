@@ -1,11 +1,10 @@
 <?php
 
-$classe = $_GET['class'];
+$controller = $_GET['controller'];
 $metodo = $_GET['acao'];
+$controller .= "Controller";
 
-$classe .= 'Controller';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/aula03/controller/' . $controller . '.php'; 
 
-require_once 'controller/' .$classe. '.php';
-
-$estudanteController = new $classe();
-$estudanteController ->$metodo();
+$objeto = new $controller();
+$objeto->$metodo();
