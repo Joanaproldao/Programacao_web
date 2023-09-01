@@ -2,7 +2,7 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/' . FOLDER .'/DataBase/Database.php';
 
-class EstudanteModel
+class ProfessorModel
 {
 
     private int $idade;
@@ -23,14 +23,14 @@ class EstudanteModel
     {
         //Obter e retornar os dados do BD
 
-        $dadosArray = $this->database->executeSelect("SELECT * FROM estudante");
+        $dadosArray = $this->database->executeSelect("SELECT * FROM professor");
 
 
         return $dadosArray;
     }
     public function salvarModel(string $nome, int $idade)
     {
-        $sql = "INSERT INTO estudante (nome, idade) values ('$nome', '$idade')";
+        $sql = "INSERT INTO professor (nome, idade) values ('$nome', '$idade')";
         $this->database->insert($sql);
         //salvar no BD
     }
